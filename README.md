@@ -26,9 +26,12 @@ Dentro da função Main(), altere as linhas de 25 a 40 conforme objetivo de pesq
 
 ## Explicação dos parâmetros
 > Tamanho_do_Primo
+> 
 Quantidade de bits do número primo seguro que será utilizado como parâmetro de domínio da troca de chave
 
-Tamanho_Chave_Privada_em_Bytes -> Tamanho em bytes da chave privada de Alice e Bob
+> Tamanho_Chave_Privada_em_Bytes
+ 
+Tamanho em bytes da chave privada de Alice e Bob
 Experimento -> Seleção de 1 dos números primos seguros gerados por comando de linha do OpenSSL e que estão registrados na função PrimoGeradoOpenSSL()
 g -> Parâmetro de domínio gerador, normalmente 2
 DataPath -> Caminho da pasta Data (Deve-se utilizar \\ ao final do caminho)
