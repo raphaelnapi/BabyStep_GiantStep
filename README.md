@@ -25,25 +25,61 @@ Dentro da função Main(), altere as linhas de 25 a 40 conforme objetivo de pesq
 ```
 
 ## Explicação dos parâmetros
-> Tamanho_do_Primo
-> 
+> TAMANHO_EM_BITS Tamanho_do_Primo
+ 
 Quantidade de bits do número primo seguro que será utilizado como parâmetro de domínio da troca de chave
 
-> Tamanho_Chave_Privada_em_Bytes
+> int Tamanho_Chave_Privada_em_Bytes
  
 Tamanho em bytes da chave privada de Alice e Bob
-Experimento -> Seleção de 1 dos números primos seguros gerados por comando de linha do OpenSSL e que estão registrados na função PrimoGeradoOpenSSL()
-g -> Parâmetro de domínio gerador, normalmente 2
-DataPath -> Caminho da pasta Data (Deve-se utilizar \\ ao final do caminho)
-Threads -> Número de Threads simultâneas empregadas na quebra da chave
-AliceKpv -> Chave privada de Alice, 0 para uma chave aleatória
-BobKpv -> Chave privada de Bob, 0 para uma chave aleatória
-realiza_brute_force -> Ativa/Desativa ataque de força bruta
-realiza_babystep_giantstep_singlethreading -> Ativa/Desativa ataque BabyStep GiantStep com apenas uma Thread
-realiza_babystep_giantstep_multithreading -> Ativa/Desativa ataque BabyStep GiantStep com mais de uma Thread
-calcula_ordem -> Ativa/Desativa calcula da ordem do grupo finito
-registra_relatorio -> Salva relatório do teste executado no diretório DataPath
-relatorio_bit_a_bit -> Utilizado para testes que precisam verificar a diferença de tempo entre chaves de tamanhos diferentes, nestes casos as chaves privadas devem ser as maiores possíveis para que as varreduras sejam as maiores possíveis
+
+> EXPERIMENTO Experimento
+ 
+Seleção de 1 dos números primos seguros gerados por comando de linha do OpenSSL e que estão registrados na função PrimoGeradoOpenSSL()
+
+> int g
+
+Parâmetro de domínio gerador, normalmente 2
+
+> string DataPath
+
+Caminho da pasta Data (Deve-se utilizar \\ ao final do caminho)
+
+> int Threads
+
+Número de Threads simultâneas empregadas na quebra da chave
+
+> BigInteger AliceKpv
+
+Chave privada de Alice, 0 para uma chave aleatória
+
+> BigInteger BobKpv
+
+Chave privada de Bob, 0 para uma chave aleatória
+
+> bool realiza_brute_force
+
+Ativa/Desativa ataque de força bruta
+
+> bool realiza_babystep_giantstep_singlethreading
+
+Ativa/Desativa ataque BabyStep GiantStep com apenas uma Thread
+
+> bool realiza_babystep_giantstep_multithreading
+
+Ativa/Desativa ataque BabyStep GiantStep com mais de uma Thread
+
+> bool calcula_ordem
+
+Ativa/Desativa calcula da ordem do grupo finito
+
+> bool registra_relatorio
+
+Salva relatório do teste executado no diretório DataPath
+
+> bool relatorio_bit_a_bit
+
+Utilizado para testes que precisam verificar a diferença de tempo entre chaves de tamanhos diferentes, nestes casos as chaves privadas devem ser as maiores possíveis para que as varreduras sejam as maiores possíveis
 
 
 Exemplo de saída:
