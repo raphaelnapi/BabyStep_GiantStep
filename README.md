@@ -82,7 +82,8 @@ Salva relatório do teste executado no diretório DataPath
 Utilizado para testes que precisam verificar a diferença de tempo entre chaves de tamanhos diferentes, nestes casos as chaves privadas devem ser as maiores possíveis para que as varreduras sejam as maiores possíveis
 
 
-Exemplo de saída:
+# Exemplo de saída
+
 ```
 Parâmetros de Domínio:
 P: 52379
