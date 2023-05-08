@@ -23,20 +23,20 @@ namespace AtaqueDiffieHellman
         static void Main(string[] args)
         {
             //Parâmetros para experimento
-            TAMANHO_EM_BITS Tamanho_do_Primo = TAMANHO_EM_BITS.Bit8;
+            TAMANHO_EM_BITS Tamanho_do_Primo = TAMANHO_EM_BITS.Bit16;
             int Tamanho_Chave_Privada_em_Bytes = 2; //O código atual não permite trabalhar com tamanho de chaves em bits
             EXPERIMENTO Experimento = EXPERIMENTO.Experimento1;
             int g = 2;
-            string DataPath = "";  //Recomendável utilizar um HD externo como banco de dados (grande volume de dados dependendo do tamanho do número primo)
+            string DataPath = "";  //Finalize com "\\", Ex: "C:\\". Recomendável utilizar um HD externo como banco de dados (grande volume de dados dependendo do tamanho do número primo)
             int Threads = 7;
-            BigInteger AliceKpv = 177; //0 para random
-            BigInteger BobKpv = 177; //0 para random 
-            bool realiza_brute_force = false;
+            BigInteger AliceKpv = 0; //0 para random
+            BigInteger BobKpv = 0; //0 para random 
+            bool realiza_brute_force = true;
             bool realiza_babystep_giantstep_singlethreading = false;
             bool realiza_babystep_giantstep_multithreading = true;
             bool calcula_ordem = false;
             bool registra_relatorio = false;
-            bool relatorio_bit_a_bit = true;
+            bool relatorio_bit_a_bit = false;  //Para testes de tempo para quebra da cifra a cada aumento de 1 bit na chave (a chave privada das partes tem que estar no limite da faixa para que o teste seja fidedigno)
             //Fim dos parâmetros para experimento
 
             //Carrega número primo
@@ -159,7 +159,7 @@ namespace AtaqueDiffieHellman
                 //  por conta disso foi feito uma primeira transferência de dados ao banco de
                 //  dados antes dos cálculos de Troughput e posteriores cálculos de tempo de
                 //  execução dos algoritmos.
-                FileStream fs_ativa_DB = new FileStream(DataPath + "\\ativa_DB.bin", FileMode.Create, FileAccess.ReadWrite);
+                FileStream fs_ativa_DB = new FileStream(DataPath + "ativa_DB.bin", FileMode.Create, FileAccess.ReadWrite);
                 BinaryWriter bw_ativa_DB = new BinaryWriter(fs_ativa_DB);
                 int megabytes_para_ativar = 100; //100 mB para testar velocidade
                 byte[] null_bytes_ativa_DB = new byte[megabytes_para_ativar * 1024 * 1024];
@@ -168,7 +168,7 @@ namespace AtaqueDiffieHellman
                 fs_ativa_DB.Close();
 
                 Console.Write("DataBase Throughput escrita: ");
-                fs = new FileStream(DataPath + "\\speed_test.bin", FileMode.Create, FileAccess.ReadWrite);
+                fs = new FileStream(DataPath + "speed_test.bin", FileMode.Create, FileAccess.ReadWrite);
                 BinaryWriter speed_test_writer = new BinaryWriter(fs);
                 int megabytes_para_teste = 100; //100 mB para testar velocidade
                 byte[] null_bytes = new byte[megabytes_para_teste * 1000 * 1000];
@@ -191,7 +191,7 @@ namespace AtaqueDiffieHellman
                 speed_test_reader.Close();
                 fs.Close();
 
-                File.Delete(DataPath + "\\speed_test.bin");
+                File.Delete(DataPath + "speed_test.bin");
 
                 BabyStep_GiantStep babystep_giantstep = new BabyStep_GiantStep(g, P, ordem, m, DataPath);
 
@@ -204,11 +204,11 @@ namespace AtaqueDiffieHellman
                 Tempos.BabyStep = TimeSpan.FromTicks(cronometro.ElapsedTicks).TotalSeconds;
                 Console.WriteLine("OK");
 
-                fs = new FileStream(DataPath + "\\BabyStep.bin", FileMode.Open);
+                fs = new FileStream(DataPath + "BabyStep.bin", FileMode.Open);
                 long Tamanho_BabyStep_DB = fs.Length;
                 fs.Close();
 
-                fs = new FileStream(DataPath + "\\BabyStep_index.bin", FileMode.Open);
+                fs = new FileStream(DataPath + "BabyStep_index.bin", FileMode.Open);
                 long Tamanho_Index_DB = fs.Length;
                 fs.Close();
 
@@ -217,11 +217,11 @@ namespace AtaqueDiffieHellman
 
                 Console.WriteLine("Tempo gasto: {0:F5}\n", Tempos.BabyStep);
                 /*
-                fs = new FileStream(DataPath + "\\BabyStep.bin", FileMode.Open);
+                fs = new FileStream(DataPath + "BabyStep.bin", FileMode.Open);
                 long Tam_BabyStep_DB = fs.Length;
                 fs.Close();
 
-                fs = new FileStream(DataPath + "\\BabyStep_index.bin", FileMode.Open);
+                fs = new FileStream(DataPath + "BabyStep_index.bin", FileMode.Open);
                 long Tam_Index_DB = fs.Length;
                 fs.Close();
 
@@ -773,14 +773,14 @@ namespace AtaqueDiffieHellman
             //Console.WriteLine(limite);
             //Console.WriteLine(Math.Sqrt((double)Ordem));
 
-            if (File.Exists(DataPath + "\\BabyStep.bin"))
-                File.Delete(DataPath + "\\BabyStep.bin");
+            if (File.Exists(DataPath + "BabyStep.bin"))
+                File.Delete(DataPath + "BabyStep.bin");
 
-            if (File.Exists(DataPath + "\\BabyStep_index.bin"))
-                File.Delete(DataPath + "\\BabyStep_index.bin");
+            if (File.Exists(DataPath + "BabyStep_index.bin"))
+                File.Delete(DataPath + "BabyStep_index.bin");
 
-            BinaryDatabase DB = new BinaryDatabase(DataPath + "\\BabyStep.bin");
-            BinaryDatabase Index_DB = new BinaryDatabase(DataPath + "\\BabyStep_index.bin");
+            BinaryDatabase DB = new BinaryDatabase(DataPath + "BabyStep.bin");
+            BinaryDatabase Index_DB = new BinaryDatabase(DataPath + "BabyStep_index.bin");
 
             //BINARY_DATABASE Index_DB = new BINARY_DATABASE(DB.FilePath.Split('.')[0] + "_index.bin");
 
@@ -800,8 +800,8 @@ namespace AtaqueDiffieHellman
 
         static BigInteger GiantStep(string DataPath, BigInteger Kpub, BigInteger P, BigInteger g, BigInteger Ord, BigInteger m)
         {
-            BinaryDatabase DB = new BinaryDatabase(DataPath + "\\BabyStep.bin");
-            BinaryDatabase Index_DB = new BinaryDatabase(DataPath + "\\BabyStep_index.bin");
+            BinaryDatabase DB = new BinaryDatabase(DataPath + "BabyStep.bin");
+            BinaryDatabase Index_DB = new BinaryDatabase(DataPath + "BabyStep_index.bin");
             DB.OpenFile();
             Index_DB.OpenFile();
 

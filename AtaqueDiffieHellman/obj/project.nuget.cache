@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RkXEeU6kOJ9sZvqaakDo17Fa82goAA1dPVcnxWxxuF27RKR7UAJrJzGD/eeZfrNEeuuSh+PSa1f9mcxioDLaTg==",
+  "dgSpecHash": "8G+tAJTVUiXocMw50HenJTWMwU2i8GdbWzcIO6gBOlgCSK7xCpu982kaOqn35ri/0LyLfWAsUfjMJV/3i5zqoQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\rapha\\source\\repos\\AtaqueDiffieHellman\\AtaqueDiffieHellman\\AtaqueDiffieHellman.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\rapha\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.25\\microsoft.netcore.app.host.win-x64.3.1.25.nupkg.sha512",
-    "C:\\Users\\rapha\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\rapha\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\rapha\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

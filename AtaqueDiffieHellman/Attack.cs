@@ -210,8 +210,8 @@ namespace AtaqueDiffieHellman
         {
             BigInteger[] Limite = (BigInteger[])Parameter;
 
-            string BabyStep_Element_File = DataPath + "\\BabyStep" + Limite[2] + ".bin";
-            string BabyStep_Index_File = DataPath + "\\BabyStep_index" + Limite[2] + ".bin";
+            string BabyStep_Element_File = DataPath + "BabyStep" + Limite[2] + ".bin";
+            string BabyStep_Index_File = DataPath + "BabyStep_index" + Limite[2] + ".bin";
 
             if (File.Exists(BabyStep_Element_File))
                 File.Delete(BabyStep_Element_File);
@@ -281,8 +281,8 @@ namespace AtaqueDiffieHellman
         {
             BigInteger[] Limite = (BigInteger[])Parameter;
 
-            string BabyStep_Element_File = DataPath + "\\BabyStep" + Limite[2] + ".bin";
-            string BabyStep_Index_File = DataPath + "\\BabyStep_index" + Limite[2] + ".bin";
+            string BabyStep_Element_File = DataPath + "BabyStep" + Limite[2] + ".bin";
+            string BabyStep_Index_File = DataPath + "BabyStep_index" + Limite[2] + ".bin";
 
             BinaryDatabase Elm_DB = new BinaryDatabase(BabyStep_Element_File);
             BinaryDatabase Index_DB = new BinaryDatabase(BabyStep_Index_File);
@@ -361,14 +361,14 @@ namespace AtaqueDiffieHellman
 
         public void BabyStep()
         {
-            if (File.Exists(this.DataPath + "\\BabyStep.bin"))
-                File.Delete(this.DataPath + "\\BabyStep.bin");
+            if (File.Exists(this.DataPath + "BabyStep.bin"))
+                File.Delete(this.DataPath + "BabyStep.bin");
 
-            if (File.Exists(this.DataPath + "\\BabyStep_index.bin"))
-                File.Delete(this.DataPath + "\\BabyStep_index.bin");
+            if (File.Exists(this.DataPath + "BabyStep_index.bin"))
+                File.Delete(this.DataPath + "BabyStep_index.bin");
 
-            this.Elm_DB = new BinaryDatabase(this.DataPath + "\\BabyStep.bin");
-            this.Index_DB = new BinaryDatabase(this.DataPath + "\\BabyStep_index.bin");
+            this.Elm_DB = new BinaryDatabase(this.DataPath + "BabyStep.bin");
+            this.Index_DB = new BinaryDatabase(this.DataPath + "BabyStep_index.bin");
 
             this.Elm_DB.OpenFile();
             this.Index_DB.OpenFile();
@@ -429,8 +429,8 @@ namespace AtaqueDiffieHellman
 
             this.Kpub = Kpub;
 
-            this.Elm_DB = new BinaryDatabase(this.DataPath + "\\BabyStep.bin"); ;
-            this.Index_DB = new BinaryDatabase(this.DataPath + "\\BabyStep_index.bin");
+            this.Elm_DB = new BinaryDatabase(this.DataPath + "BabyStep.bin"); ;
+            this.Index_DB = new BinaryDatabase(this.DataPath + "BabyStep_index.bin");
             this.Elm_DB.OpenFile();
             this.Index_DB.OpenFile();
 

@@ -4,10 +4,11 @@ C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\bin\Debug\ne
 C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\bin\Debug\netcoreapp3.1\AtaqueDiffieHellman.runtimeconfig.dev.json
 C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\bin\Debug\netcoreapp3.1\AtaqueDiffieHellman.dll
 C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\bin\Debug\netcoreapp3.1\AtaqueDiffieHellman.pdb
-C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\obj\Debug\netcoreapp3.1\AtaqueDiffieHellman.csprojAssemblyReference.cache
 C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\obj\Debug\netcoreapp3.1\AtaqueDiffieHellman.AssemblyInfoInputs.cache
 C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\obj\Debug\netcoreapp3.1\AtaqueDiffieHellman.AssemblyInfo.cs
 C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\obj\Debug\netcoreapp3.1\AtaqueDiffieHellman.csproj.CoreCompileInputs.cache
 C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\obj\Debug\netcoreapp3.1\AtaqueDiffieHellman.dll
 C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\obj\Debug\netcoreapp3.1\AtaqueDiffieHellman.pdb
 C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\obj\Debug\netcoreapp3.1\AtaqueDiffieHellman.genruntimeconfig.cache
+C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\obj\Debug\netcoreapp3.1\AtaqueDiffieHellman.csproj.AssemblyReference.cache
+C:\Users\rapha\source\repos\AtaqueDiffieHellman\AtaqueDiffieHellman\obj\Debug\netcoreapp3.1\AtaqueDiffieHellman.GeneratedMSBuildEditorConfig.editorconfig
